@@ -9,59 +9,59 @@
 		font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
 	}
 	
-	.hello-div {
-		width: 90%;
-		margin-left: 5%;
+	/*Main container*/
+	.wrapper {
+		max-width: 800px;
+		margin: auto;
 		margin-top: 80px;
-	}
-	
-	.hello-div h2 {
-		font-size: 6em;
-		text-align: center;
-		color: #2483bb;
-	}
-	
-	.hello-div h3 {
-		font-size: 3em;
-		text-align: center;
-	}
-	
-	.no-entry {
-		margin-left: 40%;
-		margin-top: 100px;
-	}
-	
-	.hello-div p {
-		font-size: 2em;
-		text-align: center;
-		width: 50%;
-		margin-left: 25%;
-		color: #2483bb;
-	}
-	
-	/*profile button style*/
-	.profile {
-		position: fixed;
-		top: 30px;
-		right: 130px;
-		text-decoration: none;
-		color: #FFFFFF;
 		background-color: #2483bb;
-		border: solid 2px #2483bb;
-		padding: 5px 10px;
+		padding: 20px;
 	}
 	
 	.header {
-		width: 80%;
-		margin-left: 10%;
-		border: solid 2px #2483bb;
+		width: 90%;
+		margin-left: 5%;
+		background-color: #FFFFFF;
+		padding-bottom: 10px;
+		padding-top: 10px;
 	}
 	
-	.content {
+	.header h2 {
 		width: 80%;
 		margin-left: 10%;
+		text-align: center;
+		font-size: 3em;
+		padding-bottom: 30px;
+		border-bottom: 2px solid #2483bb;
+	}
+	
+	.header p {
+		text-align: justify;
+		margin: 50px;
+	}
+	
+	.content-no1 {
+		width: 90%;
+		margin-left: 5%;
 		margin-top: 20px;
-		border: solid 2px #2483bb;
+	}
+	
+	.content-no2 {
+		width: 90%;
+		margin-left: 5%;
+		margin-top: 20px;
+	}
+	
+	.content-no3 {
+		width: 90%;
+		margin-left: 5%;
+		margin-top: 20px;
+	}
+	
+	.content-no4 {
+		width: 90%;
+		margin-left: 5%;
+		margin-top: 20px;
 	}
 	
 	/*profile button style*/
@@ -71,22 +71,9 @@
 		right: 100px;
 		text-decoration: none;
 		color: #FFFFFF;
-		background-color: #2483bb;
-		border: solid 2px #2483bb;
+		background-color: #000000;
+		border: solid 2px #000000;
 		padding: 5px 10px;
-	}
-	
-	.header {
-		width: 80%;
-		margin-left: 10%;
-		border: solid 2px #2483bb;
-	}
-	
-	.content {
-		width: 80%;
-		margin-left: 10%;
-		margin-top: 20px;
-		border: solid 2px #2483bb;
 	}
 	
 	/*Dropdown menu style*/
@@ -131,31 +118,50 @@
 		display: block;
 	}
 	
+	.no-entry {
+		margin-left: 40%;
+		margin-top: 100px;
+	}
+	
 </style>
 
 </head>
 
 <body>
 
-<div class="hello-div">
+
 <?php
 	
 	if (!empty($_SESSION['uid'])){
 		/*?> Dropdown menu <?php */
-		echo '<div class="dropdown">
-					<button class="dropbtn"></button>
-					<div class="dropdown-content">
-						<a href="secretinfo.php">Home</a>
-						<a href="profile.php">Profile</a>
-						<a href="logout.php">Logout</a>
+		echo '<div class="wrapper">
+				
+					<div class="dropdown">
+						<button class="dropbtn"></button>
+						<div class="dropdown-content">
+							<a href="secretinfo.php">Home</a>
+							<a href="profile.php">Profile</a>
+							<a href="logout.php">Logout</a>
+						</div>
 					</div>
+			
+					<div class="header"> <h2> Welcome '.$_SESSION['un'].' </h2> 
+						<p> This is LOGON, and im glad that you are here. The fact that you are reading this means that you have created a user and uploaded the data to my own MySQL database, and have used this newly created user to login using my PHP files. I havent yet decided what secret info i should display yet, so i just got some random stuff for you.</p>
+					
+					</div>
+					
+					<div class="content-no1"> <img src="images/apple.jpg" width="100%" height="auto" alt=""/> </div>
+					<div class="content-no2"> <img src="images/eggs.jpg" width="100%" height="auto" alt=""/> </div>
+					<div class="content-no3"> <img src="images/eveil.png" width="100%" height="auto" alt=""/> </div>
+					<div class="content-no4"> <img src="images/JC.jpg" width="100%" height="auto" alt=""/> </div>
+					
+					
 			  </div>';
 		
 		echo '<a class="profile" href="profile.php"> '.$_SESSION['un'].' </a>';
 		
 		/*?> Content <?php */
-		echo '<div class="header"> <h2> Welcome '.$_SESSION['un'].' </h2> </div>';
-		echo '<div class="content"><p> I’m glad that you are here. <br> Because that means that you have successfully registered yourself in my very own MySQL database and logged in trough my PHP files. </p></div>';
+		
 	}
 	else {
 		echo '<img class="no-entry" src="images/No_entry.png" width="20%" height="auto" alt=""/>';
@@ -164,10 +170,6 @@
 	}
 	
 ?>
-
-</div>
-
-
 
 </body>
 </html>

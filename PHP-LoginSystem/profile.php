@@ -9,34 +9,35 @@
 		font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
 	}
 	
-	.hello-div {
+	/*Main container*/
+	.wrapper {
+		max-width: 800px;
+		margin: auto;
+		margin-top: 80px;
+		background-color: #2483bb;
+		padding: 20px;
+	}
+	
+	.header {
 		width: 90%;
 		margin-left: 5%;
-		margin-top: 80px;
+		background-color: #FFFFFF;
+		padding-bottom: 10px;
+		padding-top: 10px;
 	}
 	
-	.hello-div h2 {
-		font-size: 6em;
+	.header h2 {
+		width: 80%;
+		margin-left: 10%;
 		text-align: center;
-		color: #2483bb;
-	}
-	
-	.hello-div h3 {
 		font-size: 3em;
-		text-align: center;
+		padding-bottom: 30px;
+		border-bottom: 2px solid #2483bb;
 	}
 	
-	.no-entry {
-		margin-left: 40%;
-		margin-top: 100px;
-	}
-	
-	.hello-div p {
-		font-size: 2em;
-		text-align: center;
-		width: 50%;
-		margin-left: 25%;
-		color: #2483bb;
+	.header p {
+		text-align: justify;
+		margin: 50px;
 	}
 	
 	/*profile button style*/
@@ -46,22 +47,9 @@
 		right: 100px;
 		text-decoration: none;
 		color: #FFFFFF;
-		background-color: #2483bb;
-		border: solid 2px #2483bb;
+		background-color: #000000;
+		border: solid 2px #000000;
 		padding: 5px 10px;
-	}
-	
-	.header {
-		width: 80%;
-		margin-left: 10%;
-		border: solid 2px #2483bb;
-	}
-	
-	.content {
-		width: 80%;
-		margin-left: 10%;
-		margin-top: 20px;
-		border: solid 2px #2483bb;
 	}
 	
 	/*Dropdown menu style*/
@@ -106,30 +94,43 @@
 		display: block;
 	}
 	
+	.no-entry {
+		margin-left: 40%;
+		margin-top: 100px;
+	}
+	
 </style>
 
 </head>
 
 <body>
 
-<div class="hello-div">
+
 <?php
 	
 	if (!empty($_SESSION['uid'])){
 		/*?> Dropdown menu <?php */
-		echo '<div class="dropdown">
-					<button class="dropbtn"></button>
-					<div class="dropdown-content">
-						<a href="secretinfo.php">Home</a>
-						<a href="profile.php">Profile</a>
-						<a href="logout.php">Logout</a>
+		echo '<div class="wrapper">
+				
+					<div class="dropdown">
+						<button class="dropbtn"></button>
+						<div class="dropdown-content">
+							<a href="secretinfo.php">Home</a>
+							<a href="profile.php">Profile</a>
+							<a href="logout.php">Logout</a>
+						</div>
 					</div>
+			
+					<div class="header"> <h2> Profile Info </h2> 
+						<p> On this page i want to display your profile info, although we both know your name, right '.$_SESSION['un'].' :P. At some point you will be able to see the rest of the information that you where so kind to give me.</p>
+					</div>
+
 			  </div>';
 		
 		echo '<a class="profile" href="profile.php"> '.$_SESSION['un'].' </a>';
 		
 		/*?> Content <?php */
-		echo '<div class="header"> <h2> Profile </h2> </div>';
+		
 	}
 	else {
 		echo '<img class="no-entry" src="images/No_entry.png" width="20%" height="auto" alt=""/>';
@@ -138,10 +139,6 @@
 	}
 	
 ?>
-
-</div>
-
-
 
 </body>
 </html>

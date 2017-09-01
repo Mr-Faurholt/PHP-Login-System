@@ -1,8 +1,8 @@
 <?php
-$DB_HOST = 'faurholtdesign.com.mysql';
-$DB_USER = 'faurholtdesign_com_flow';
-$DB_PASS = '22Fa@2860';
-$DB_NAME = 'faurholtdesign_com_flow';
+$DB_HOST = 'localhost';
+$DB_USER = 'root';
+$DB_PASS = 'root';
+$DB_NAME = 'loginDB';
 // $DB_PORT = '8889';
 
 $link = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);

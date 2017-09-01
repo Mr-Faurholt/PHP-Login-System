@@ -84,7 +84,7 @@ if(!empty(filter_input(INPUT_POST, 'submit'))) {
 		// echo 'logged in as user '.$uid; <-- Uncomment to check if the login works
 		$_SESSION['uid'] = $uid;
 		$_SESSION['un'] = $un;
-		echo("<script>location.href = 'http://www.faurholtdesign.com/Login/secretinfo.php';</script>"); //Redirects after submitting form data
+		echo("<script>location.href = 'secretinfo.php';</script>"); //Redirects after submitting form data
 	}
 	else {
 		echo 'illegal username/password combination';
